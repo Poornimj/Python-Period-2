@@ -10,10 +10,10 @@ airport_database = {
 }
 
 @app.route('/airport/<string:icao_code>', methods=['GET'])
-def get_airport_info(icao_code, icoa_code=None):
+def get_airport_info(icao_code):
     """Get airport information by ICAO code"""
-    if icoa_code in airport_database:
-        return jsonify({"ICAO": icoa_code, "Name": airport_database[icoa_code]["Name"], "Location": airport_database[icoa_code]["Location"]})
+    if icao_code in airport_database:
+        return jsonify({"ICAO": icao_code, "Name": airport_database[icao_code]["Name"], "Location": airport_database[icao_code]["Location"]})
     else:
         return jsonify({"Error": f"Airport not found for ICAO code {icao_code}"}), 404
 
